@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -20,15 +20,16 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { Logo } from "@/components/logo";
 
 export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
-  const [adminEmail, setAdminEmail] = useState("");
-  const [adminPassword, setAdminPassword] = useState("");
-  const [teacherEmail, setTeacherEmail] = useState("");
-  const [teacherPassword, setTeacherPassword] = useState("");
-  const [studentPhone, setStudentPhone] = useState("");
+  const [adminEmail, setAdminEmail] = useState("admin@attendease.com");
+  const [adminPassword, setAdminPassword] = useState("password123");
+  const [teacherEmail, setTeacherEmail] = useState("teacher@example.com");
+  const [teacherPassword, setTeacherPassword] = useState("password");
+  const [studentPhone, setStudentPhone] = useState("1234567890");
 
   const handleLogin = (role: 'admin' | 'teacher' | 'student') => {
     // Hardcoded credentials for demonstration
@@ -57,8 +58,8 @@ export default function LoginPage() {
     if (isAuthenticated) {
       toast({
         title: "Login Successful",
-        description: `Welcome! You are logged in as ${role}.`,
-        className: 'bg-primary text-primary-foreground'
+        description: `Welcome! Redirecting you to the dashboard.`,
+        variant: "default",
       });
       router.push("/dashboard");
     } else {
@@ -71,7 +72,7 @@ export default function LoginPage() {
   };
 
   const handleSignUp = () => {
-    // For now, this can just route to dashboard or show a toast
+    // For now, this can just show a toast
     // In a real app, this would go to a sign up page or open a modal
      toast({
         title: "Sign Up",
@@ -80,124 +81,100 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <div className="flex flex-col items-center">
-        <div className="flex items-center gap-2 mb-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="h-10 w-10 text-primary"
-            fill="currentColor"
-          >
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 15.17l7.59-7.59L20 9l-9 9z" />
-          </svg>
-          <h1 className="font-headline text-4xl font-semibold tracking-tight">
-            AttendEase
-          </h1>
-        </div>
-        <p className="text-muted-foreground mb-8">
-          Welcome! Please log in or sign up to continue.
-        </p>
-        <Tabs defaultValue="teacher" className="w-[400px]">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="teacher">Teacher</TabsTrigger>
-            <TabsTrigger value="student">Student</TabsTrigger>
-            <TabsTrigger value="admin">Admin</TabsTrigger>
-            <TabsTrigger value="signup">Sign Up</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="teacher">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">Teacher Login</CardTitle>
-                <CardDescription>
-                  Enter your credentials to access the teacher dashboard.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="teacher-email">Email</Label>
-                  <Input id="teacher-email" type="email" placeholder="mail@example.com" value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="teacher-password">Password</Label>
-                  <Input id="teacher-password" type="password" value={teacherPassword} onChange={(e) => setTeacherPassword(e.target.value)} />
-                </div>
-                <Button type="submit" className="w-full" onClick={() => handleLogin('teacher')}>
-                  Log In
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="student">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">Student Login</CardTitle>
-                <CardDescription>
-                  Enter your phone number to log in.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="student-phone">Phone Number</Label>
-                  <Input id="student-phone" type="tel" placeholder="123-456-7890" value={studentPhone} onChange={(e) => setStudentPhone(e.target.value)} />
-                </div>
-                <Button type="submit" className="w-full" onClick={() => handleLogin('student')}>
-                  Log In
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-          
-          <TabsContent value="admin">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">Admin Login</CardTitle>
-                <CardDescription>
-                  Enter your admin credentials to continue.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="admin-email">Email</Label>
-                  <Input id="admin-email" type="email" placeholder="admin@example.com" value={adminEmail} onChange={(e) => setAdminEmail(e.target.value)} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="admin-password">Password</Label>
-                  <Input id="admin-password" type="password" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} />
-                </div>
-                <Button type="submit" className="w-full" onClick={() => handleLogin('admin')}>
-                  Log In
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-           <TabsContent value="signup">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">Sign Up</CardTitle>
-                <CardDescription>
-                  Create a new account to get started.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                 <div className="space-y-2">
-                  <Label htmlFor="signup-email">Email</Label>
-                  <Input id="signup-email" type="email" placeholder="mail@example.com" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="signup-password">Password</Label>
-                  <Input id="signup-password" type="password" />
-                </div>
-                <Button type="submit" className="w-full" onClick={handleSignUp}>
-                  Create Account
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
+    <div className="flex items-center justify-center min-h-screen bg-background p-4">
+        <Tabs defaultValue="teacher" className="w-full max-w-md">
+            <div className="flex justify-center mb-8">
+                <Logo />
+            </div>
+            <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="teacher">Teacher</TabsTrigger>
+                <TabsTrigger value="student">Student</TabsTrigger>
+                <TabsTrigger value="admin">Admin</TabsTrigger>
+            </TabsList>
+            <TabsContent value="teacher">
+                <Card>
+                <CardHeader>
+                    <CardTitle>Teacher Login</CardTitle>
+                    <CardDescription>
+                    Enter your credentials to access the teacher dashboard.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="teacher-email">Email</Label>
+                        <Input id="teacher-email" type="email" placeholder="mail@example.com" value={teacherEmail} onChange={(e) => setTeacherEmail(e.target.value)} />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="teacher-password">Password</Label>
+                        <Input id="teacher-password" type="password" value={teacherPassword} onChange={(e) => setTeacherPassword(e.target.value)} />
+                    </div>
+                </CardContent>
+                <CardFooter className="flex flex-col gap-4">
+                    <Button type="submit" className="w-full" onClick={() => handleLogin('teacher')}>
+                        Sign In
+                    </Button>
+                     <p className="text-xs text-center text-muted-foreground">
+                        Don't have an account?{' '}
+                        <Button variant="link" size="sm" className="p-0 h-auto" onClick={handleSignUp}>
+                            Sign up
+                        </Button>
+                    </p>
+                </CardFooter>
+                </Card>
+            </TabsContent>
+            <TabsContent value="student">
+                <Card>
+                <CardHeader>
+                    <CardTitle>Student Login</CardTitle>
+                    <CardDescription>
+                    Enter your phone number to sign in.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="student-phone">Phone Number</Label>
+                        <Input id="student-phone" type="tel" placeholder="123-456-7890" value={studentPhone} onChange={(e) => setStudentPhone(e.target.value)} />
+                    </div>
+                </CardContent>
+                 <CardFooter className="flex flex-col gap-4">
+                    <Button type="submit" className="w-full" onClick={() => handleLogin('student')}>
+                        Sign In
+                    </Button>
+                     <p className="text-xs text-center text-muted-foreground">
+                        Don't have an account?{' '}
+                        <Button variant="link" size="sm" className="p-0 h-auto" onClick={handleSignUp}>
+                           Contact Admin
+                        </Button>
+                    </p>
+                </CardFooter>
+                </Card>
+            </TabsContent>
+            <TabsContent value="admin">
+                <Card>
+                <CardHeader>
+                    <CardTitle>Admin Login</CardTitle>
+                    <CardDescription>
+                    Enter your admin credentials to continue.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                    <Label htmlFor="admin-email">Email</Label>
+                    <Input id="admin-email" type="email" placeholder="admin@example.com" value={adminEmail} onChange={(e) => setAdminEmail(e.target.value)} />
+                    </div>
+                    <div className="space-y-2">
+                    <Label htmlFor="admin-password">Password</Label>
+                    <Input id="admin-password" type="password" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Button type="submit" className="w-full" onClick={() => handleLogin('admin')}>
+                        Sign In
+                    </Button>
+                </CardFooter>
+                </Card>
+            </TabsContent>
         </Tabs>
-      </div>
     </div>
   );
 }

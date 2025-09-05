@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
-  Clipboard,
+  ClipboardCheck,
   History,
   Users,
   FileText,
@@ -21,10 +21,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/components/logo";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/attendance", icon: Clipboard, label: "Attendance" },
+  { href: "/attendance", icon: ClipboardCheck, label: "Attendance" },
   { href: "/history", icon: History, label: "History" },
   { href: "/users", icon: Users, label: "Users" },
   { href: "/prediction", icon: BrainCircuit, label: "Prediction" },
@@ -37,19 +38,7 @@ export function SidebarNav() {
   return (
     <>
       <SidebarHeader>
-        <div className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="w-8 h-8 text-primary"
-            fill="currentColor"
-          >
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 15.17l7.59-7.59L20 9l-9 9z" />
-          </svg>
-          <h2 className="font-headline text-2xl font-semibold tracking-tight">
-            AttendEase
-          </h2>
-        </div>
+        <Logo />
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarMenu>
@@ -78,10 +67,12 @@ export function SidebarNav() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip="Log Out">
-              <LogOut />
-              <span>Log Out</span>
-            </SidebarMenuButton>
+             <Link href="/login" legacyBehavior passHref>
+                <SidebarMenuButton tooltip="Log Out">
+                    <LogOut />
+                    <span>Log Out</span>
+                </SidebarMenuButton>
+            </Link>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

@@ -51,60 +51,63 @@ export default function GroupAttendancePage({ params }: { params: { groupId: str
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-headline">Mark Attendance: {group.name}</CardTitle>
-        <CardDescription>Select the status for each member below.</CardDescription>
+        <CardTitle>Mark Attendance: {group.name}</CardTitle>
+        <CardDescription>Select the status for each member below. Today is {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}.</CardDescription>
       </CardHeader>
       <CardContent>
         <form>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Member</TableHead>
-                <TableHead className="text-center w-[400px]">Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {groupMembers.map((member) => (
-                <TableRow key={member.id}>
-                  <TableCell>
-                    <div className="flex items-center gap-3">
-                      <Image
-                        className="h-10 w-10 rounded-full"
-                        src={member.avatarUrl}
-                        alt={member.name}
-                        width={40}
-                        height={40}
-                      />
-                      <div>
-                        <div className="font-medium">{member.name}</div>
-                        <div className="text-sm text-muted-foreground">{member.email}</div>
-                      </div>
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <RadioGroup
-                      defaultValue="present"
-                      onValueChange={(value) => handleStatusChange(member.id, value as AttendanceStatus)}
-                      className="flex justify-center gap-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="present" id={`${member.id}-present`} />
-                        <Label htmlFor={`${member.id}-present`} className="flex items-center gap-1 cursor-pointer"><CheckCircle2 className="w-4 h-4 text-green-500" /> Present</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="late" id={`${member.id}-late`} />
-                        <Label htmlFor={`${member.id}-late`} className="flex items-center gap-1 cursor-pointer"><Clock className="w-4 h-4 text-orange-500" /> Late</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="absent" id={`${member.id}-absent`} />
-                        <Label htmlFor={`${member.id}-absent`} className="flex items-center gap-1 cursor-pointer"><XCircle className="w-4 h-4 text-red-500" /> Absent</Label>
-                      </div>
-                    </RadioGroup>
-                  </TableCell>
+          <div className="border rounded-lg">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Member</TableHead>
+                  <TableHead className="text-center w-[400px]">Status</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {groupMembers.map((member) => (
+                  <TableRow key={member.id}>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <Image
+                          className="h-10 w-10 rounded-full"
+                          src={member.avatarUrl}
+                          alt={member.name}
+                          width={40}
+                          height={40}
+                        />
+                        <div>
+                          <div className="font-medium">{member.name}</div>
+                          <div className="text-sm text-muted-foreground">{member.email}</div>
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <RadioGroup
+                        defaultValue="present"
+                        onValueChange={(value) => handleStatusChange(member.id, value as AttendanceStatus)}
+                        className="flex justify-center gap-4"
+                        value={attendance.find(a => a.userId === member.id)?.status || 'present'}
+                      >
+                        <Label htmlFor={`${member.id}-present`} className="flex items-center gap-2 cursor-pointer rounded-full border px-4 py-2 has-[:checked]:bg-green-100 has-[:checked]:text-green-900 has-[:checked]:border-green-200 transition-colors">
+                          <RadioGroupItem value="present" id={`${member.id}-present`} className="sr-only" />
+                          <CheckCircle2 className="w-4 h-4" /> Present
+                        </Label>
+                        <Label htmlFor={`${member.id}-late`} className="flex items-center gap-2 cursor-pointer rounded-full border px-4 py-2 has-[:checked]:bg-yellow-100 has-[:checked]:text-yellow-900 has-[:checked]:border-yellow-200 transition-colors">
+                           <RadioGroupItem value="late" id={`${member.id}-late`} className="sr-only"/>
+                          <Clock className="w-4 h-4" /> Late
+                        </Label>
+                        <Label htmlFor={`${member.id}-absent`} className="flex items-center gap-2 cursor-pointer rounded-full border px-4 py-2 has-[:checked]:bg-red-100 has-[:checked]:text-red-900 has-[:checked]:border-red-200 transition-colors">
+                           <RadioGroupItem value="absent" id={`${member.id}-absent`} className="sr-only"/>
+                          <XCircle className="w-4 h-4" /> Absent
+                        </Label>
+                      </RadioGroup>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
           <div className="flex justify-end mt-6">
             <Button type="button" onClick={handleSubmit}>
               Submit Attendance

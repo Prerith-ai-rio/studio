@@ -16,7 +16,7 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import Link from "next/link";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 const attendanceData = [
   { name: "Mon", present: 28, absent: 2 },
@@ -24,11 +24,8 @@ const attendanceData = [
   { name: "Wed", present: 29, absent: 1 },
   { name: "Thu", present: 27, absent: 3 },
   { name: "Fri", present: 25, absent: 5 },
-];
-
-const predictedAbsences = [
-    { name: "Alice Johnson", reason: "High probability based on past week" },
-    { name: "Bob Williams", reason: "Frequent Monday absences" },
+  { name: "Sat", present: 30, absent: 0 },
+  { name: "Sun", present: 30, absent: 0 },
 ];
 
 export default function DashboardPage() {
@@ -65,7 +62,7 @@ export default function DashboardPage() {
             <AlertCircle className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">2</div>
+            <div className="text-2xl font-bold text-destructive">2</div>
             <p className="text-xs text-muted-foreground">Unplanned absences today</p>
           </CardContent>
         </Card>
@@ -83,17 +80,18 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 lg:grid-cols-5">
+        <Card className="lg:col-span-3">
           <CardHeader>
-            <CardTitle className="font-headline">Weekly Attendance</CardTitle>
+            <CardTitle>Weekly Attendance</CardTitle>
             <CardDescription>
               Overview of attendance for the current week.
             </CardDescription>
           </CardHeader>
-          <CardContent className="h-[300px]">
+          <CardContent className="h-[300px] pl-2">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={attendanceData}>
+                <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <XAxis
                   dataKey="name"
                   stroke="#888888"
@@ -133,19 +131,19 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle className="font-headline">Quick Actions</CardTitle>
+            <CardTitle>Quick Actions</CardTitle>
             <CardDescription>
-              Navigate to key features of the application.
+              Navigate to key features.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <Link href="/attendance" passHref>
-              <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground">
+              <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Mark Attendance</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
                     Take attendance for a group.
                   </p>
                 </div>
@@ -153,21 +151,21 @@ export default function DashboardPage() {
               </div>
             </Link>
             <Link href="/users" passHref>
-               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground">
+               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Manage Users</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Add, edit, or remove user profiles.
+                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
+                    Add, edit, or remove users.
                   </p>
                 </div>
                 <ArrowRight className="h-5 w-5" />
               </div>
             </Link>
              <Link href="/reports" passHref>
-               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground">
+               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Generate Reports</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
                     Export attendance data.
                   </p>
                 </div>
