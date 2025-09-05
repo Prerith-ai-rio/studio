@@ -1,12 +1,12 @@
 import type { User, Group, AttendanceRecord } from './types';
 
 export const users: User[] = [
-  { id: 'user-1', name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin', avatarUrl: 'https://i.picsum.photos/id/1/32/32.jpg' },
-  { id: 'user-2', name: 'Bob Williams', email: 'bob@example.com', role: 'Member', avatarUrl: 'https://i.picsum.photos/id/2/32/32.jpg' },
-  { id: 'user-3', name: 'Charlie Brown', email: 'charlie@example.com', role: 'Member', avatarUrl: 'https://i.picsum.photos/id/3/32/32.jpg' },
-  { id: 'user-4', name: 'Diana Miller', email: 'diana@example.com', role: 'Member', avatarUrl: 'https://i.picsum.photos/id/4/32/32.jpg' },
-  { id: 'user-5', name: 'Ethan Davis', email: 'ethan@example.com', role: 'Member', avatarUrl: 'https://i.picsum.photos/id/5/32/32.jpg' },
-  { id: 'user-6', name: 'Fiona Garcia', email: 'fiona@example.com', role: 'Member', avatarUrl: 'https://i.picsum.photos/id/6/32/32.jpg' },
+  { id: 'user-1', name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin', avatarUrl: 'https://picsum.photos/id/1/32/32' },
+  { id: 'user-2', name: 'Bob Williams', email: 'bob@example.com', role: 'Member', avatarUrl: 'https://picsum.photos/id/2/32/32' },
+  { id: 'user-3', name: 'Charlie Brown', email: 'charlie@example.com', role: 'Member', avatarUrl: 'https://picsum.photos/id/3/32/32' },
+  { id: 'user-4', name: 'Diana Miller', email: 'diana@example.com', role: 'Member', avatarUrl: 'https://picsum.photos/id/4/32/32' },
+  { id: 'user-5', name: 'Ethan Davis', email: 'ethan@example.com', role: 'Member', avatarUrl: 'https://picsum.photos/id/5/32/32' },
+  { id: 'user-6', name: 'Fiona Garcia', email: 'fiona@example.com', role: 'Member', avatarUrl: 'https://picsum.photos/id/6/32/32' },
 ];
 
 export const groups: Group[] = [
