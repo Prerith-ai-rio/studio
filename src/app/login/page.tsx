@@ -60,6 +60,7 @@ export default function LoginPage() {
         title: "Login Successful",
         description: `Welcome! Redirecting you to the dashboard.`,
         variant: "default",
+        className: "bg-primary text-primary-foreground"
       });
       router.push("/dashboard");
     } else {
@@ -72,8 +73,6 @@ export default function LoginPage() {
   };
 
   const handleSignUp = () => {
-    // For now, this can just show a toast
-    // In a real app, this would go to a sign up page or open a modal
      toast({
         title: "Sign Up",
         description: "Sign up functionality is not yet implemented.",
