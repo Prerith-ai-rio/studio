@@ -1,10 +1,11 @@
 
+
 import { AppLayout } from '@/components/layout/app-layout';
 import { redirect } from 'next/navigation';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   // This is a placeholder for auth logic
-  const isAuthenticated = true; 
+  const isAuthenticated = false; 
 
   if (!isAuthenticated) {
     redirect('/login');

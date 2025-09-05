@@ -26,7 +26,6 @@ export default function LoginPage() {
   const { toast } = useToast();
   const [adminEmail, setAdminEmail] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
-  const [productKey, setProductKey] = useState("");
   const [teacherEmail, setTeacherEmail] = useState("");
   const [teacherPassword, setTeacherPassword] = useState("");
   const [studentPhone, setStudentPhone] = useState("");
@@ -35,7 +34,6 @@ export default function LoginPage() {
     // Hardcoded credentials for demonstration
     const ADMIN_EMAIL = "admin@attendease.com";
     const ADMIN_PASSWORD = "password123";
-    const PRODUCT_KEY = "PRODKEY123";
     const TEACHER_EMAIL = "teacher@example.com";
     const TEACHER_PASSWORD = "password";
     const STUDENT_PHONE = "1234567890";
@@ -43,7 +41,7 @@ export default function LoginPage() {
     let isAuthenticated = false;
 
     if (role === 'admin') {
-      if (adminEmail === ADMIN_EMAIL && adminPassword === ADMIN_PASSWORD && productKey === PRODUCT_KEY) {
+      if (adminEmail === ADMIN_EMAIL && adminPassword === ADMIN_PASSWORD) {
         isAuthenticated = true;
       }
     } else if (role === 'teacher') {
@@ -72,6 +70,15 @@ export default function LoginPage() {
     }
   };
 
+  const handleSignUp = () => {
+    // For now, this can just route to dashboard or show a toast
+    // In a real app, this would go to a sign up page or open a modal
+     toast({
+        title: "Sign Up",
+        description: "Sign up functionality is not yet implemented.",
+      });
+  }
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="flex flex-col items-center">
@@ -89,13 +96,14 @@ export default function LoginPage() {
           </h1>
         </div>
         <p className="text-muted-foreground mb-8">
-          Welcome back! Please log in to your account.
+          Welcome! Please log in or sign up to continue.
         </p>
         <Tabs defaultValue="teacher" className="w-[400px]">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="teacher">Teacher</TabsTrigger>
             <TabsTrigger value="student">Student</TabsTrigger>
             <TabsTrigger value="admin">Admin</TabsTrigger>
+            <TabsTrigger value="signup">Sign Up</TabsTrigger>
           </TabsList>
           
           <TabsContent value="teacher">
@@ -147,7 +155,7 @@ export default function LoginPage() {
               <CardHeader>
                 <CardTitle className="font-headline">Admin Login</CardTitle>
                 <CardDescription>
-                  Enter your admin credentials and product key.
+                  Enter your admin credentials to continue.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -159,12 +167,31 @@ export default function LoginPage() {
                   <Label htmlFor="admin-password">Password</Label>
                   <Input id="admin-password" type="password" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="product-key">Product Key</Label>
-                  <Input id="product-key" type="text" placeholder="ABC-123-XYZ" value={productKey} onChange={(e) => setProductKey(e.target.value)} />
-                </div>
                 <Button type="submit" className="w-full" onClick={() => handleLogin('admin')}>
                   Log In
+                </Button>
+              </CardContent>
+            </Card>
+          </TabsContent>
+           <TabsContent value="signup">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline">Sign Up</CardTitle>
+                <CardDescription>
+                  Create a new account to get started.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                 <div className="space-y-2">
+                  <Label htmlFor="signup-email">Email</Label>
+                  <Input id="signup-email" type="email" placeholder="mail@example.com" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-password">Password</Label>
+                  <Input id="signup-password" type="password" />
+                </div>
+                <Button type="submit" className="w-full" onClick={handleSignUp}>
+                  Create Account
                 </Button>
               </CardContent>
             </Card>
