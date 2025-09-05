@@ -25,16 +25,16 @@ import { Logo } from "@/components/logo";
 export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
-  const [adminEmail, setAdminEmail] = useState("admin@attendease.com");
-  const [adminPassword, setAdminPassword] = useState("password123");
+  const [adminEmail, setAdminEmail] = useState("prerithm87@gmail.com");
+  const [adminPassword, setAdminPassword] = useState("Prolmt@1");
   const [teacherEmail, setTeacherEmail] = useState("teacher@example.com");
   const [teacherPassword, setTeacherPassword] = useState("password");
   const [studentPhone, setStudentPhone] = useState("1234567890");
 
   const handleLogin = (role: 'admin' | 'teacher' | 'student') => {
     // Hardcoded credentials for demonstration
-    const ADMIN_EMAIL = "admin@attendease.com";
-    const ADMIN_PASSWORD = "password123";
+    const ADMIN_EMAIL = "prerithm87@gmail.com";
+    const ADMIN_PASSWORD = "Prolmt@1";
     const TEACHER_EMAIL = "teacher@example.com";
     const TEACHER_PASSWORD = "password";
     const STUDENT_PHONE = "1234567890";
@@ -82,7 +82,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
-        <Tabs defaultValue="teacher" className="w-full max-w-md">
+        <Tabs defaultValue="admin" className="w-full max-w-md">
             <div className="flex justify-center mb-8">
                 <Logo />
             </div>
