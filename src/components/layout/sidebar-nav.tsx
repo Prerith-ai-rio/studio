@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
-  ClipboardUser,
+  Clipboard,
   History,
   Users,
   FileText,
@@ -24,7 +24,7 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/attendance", icon: ClipboardUser, label: "Attendance" },
+  { href: "/attendance", icon: Clipboard, label: "Attendance" },
   { href: "/history", icon: History, label: "History" },
   { href: "/users", icon: Users, label: "Users" },
   { href: "/prediction", icon: BrainCircuit, label: "Prediction" },

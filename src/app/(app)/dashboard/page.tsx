@@ -14,14 +14,7 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import Link from "next/link";
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
 const attendanceData = [
   { name: "Mon", present: 28, absent: 2 },
