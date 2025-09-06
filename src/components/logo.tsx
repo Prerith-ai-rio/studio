@@ -40,9 +40,9 @@ const Logo: React.FC<LogoProps> = ({
           <rect x="0" y="0" width="40" height="220" rx="20" fill={fillBlue} />
           <rect x="80" y="0" width="40" height="220" rx="20" fill={fillBlue} />
           <rect x="160" y="0" width="40" height="120" rx="20" fill={fillBlue} />
-          <circle cx="60" cy="250" r="22" fill={fillGreen} />
-          <circle cx="130" cy="250" r="22" fill={fillGreen} />
-          <circle cx="200" cy="250" r="22" fill={fillCoral} />
+          <circle cx="180" cy="170" r="22" fill={fillBlue} />
+          <circle cx="180" cy="230" r="22" fill={fillGreen} />
+          <circle cx="180" cy="290" r="22" fill={fillCoral} />
         </g>
         <g fill={wordmarkFill} transform="translate(300,215) scale(1.05)">
           <path d="M60-20c0-38 26-64 64-64 21 0 38 8 49 22l10-18h32v160H168v-20c-12 14-29 22-50 22-38 0-58-22-58-56 0-35 22-56 64-56h44c-2-22-16-34-38-34-18 0-31 9-35 24H60zm116 60v-28h-40c-24 0-34 8-34 24 0 14 10 24 30 24 18 0 34-8 44-20z" />
@@ -55,11 +55,13 @@ const Logo: React.FC<LogoProps> = ({
         </g>
       </g>
       <g className="hidden group-data-[collapsible=icon]:block" transform="scale(3.5) translate(40, 20)">
-        <g>
-          <rect x="0" y="0" width="40" height="70" rx="20" fill={fillBlue} />
-          <rect x="50" y="0" width="40" height="70" rx="20" fill={fillBlue} />
-          <circle cx="20" cy="85" r="10" fill={fillGreen} />
-          <circle cx="70" cy="85" r="10" fill={fillCoral} />
+        <g transform="translate(0, 5)">
+            <rect x="0" y="0" width="10" height="55" rx="5" fill={fillBlue} />
+            <rect x="20" y="0" width="10" height="55" rx="5" fill={fillBlue} />
+            <rect x="40" y="0" width="10" height="30" rx="5" fill={fillBlue} />
+            <circle cx="45" cy="42.5" r="5.5" fill={fillBlue} />
+            <circle cx="45" cy="60" r="5.5" fill={fillGreen} />
+            <circle cx="45" cy="77.5" r="5.5" fill={fillCoral} />
         </g>
       </g>
     </svg>
