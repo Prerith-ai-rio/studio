@@ -20,7 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
-import { Logo } from "@/components/logo";
+import Logo from "@/components/logo";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -83,7 +83,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
         <Tabs defaultValue="admin" className="w-full max-w-md">
             <div className="flex justify-center mb-8">
-                <Logo />
+                <Logo width={250} fillBlue="hsl(var(--primary))" fillGreen="hsl(var(--accent))" fillCoral="hsl(var(--destructive))"/>
             </div>
             <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="teacher">Teacher</TabsTrigger>

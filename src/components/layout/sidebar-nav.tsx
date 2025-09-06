@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Logo } from "@/components/logo";
+import Logo from "@/components/logo";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
@@ -69,12 +69,12 @@ export function SidebarNav() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Log Out">
-              <Link href="/login">
-                <LogOut />
-                <span>Log Out</span>
-              </Link>
-            </SidebarMenuButton>
+             <Link href="/login">
+                <SidebarMenuButton tooltip="Log Out">
+                    <LogOut />
+                    <span>Log Out</span>
+                </SidebarMenuButton>
+            </Link>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
