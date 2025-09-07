@@ -16,13 +16,13 @@ import Link from "next/link";
 import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine } from "recharts";
 
 const attendanceData = [
-  { name: "Mon", present: 28, absent: 2 },
-  { name: "Tue", present: 30, absent: 0 },
-  { name: "Wed", present: 29, absent: 1 },
-  { name: "Thu", present: 27, absent: 3 },
-  { name: "Fri", present: 25, absent: 5 },
-  { name: "Sat", present: 30, absent: 0 },
-  { name: "Sun", present: 30, absent: 0 },
+  { name: "Mon", present: 28, absent: 2, max: 30 },
+  { name: "Tue", present: 30, absent: 0, max: 30 },
+  { name: "Wed", present: 29, absent: 1, max: 30 },
+  { name: "Thu", present: 27, absent: 3, max: 30 },
+  { name: "Fri", present: 25, absent: 5, max: 30 },
+  { name: "Sat", present: 30, absent: 0, max: 30 },
+  { name: "Sun", present: 30, absent: 0, max: 30 },
 ];
 
 export default function DashboardPage() {
@@ -97,7 +97,15 @@ export default function DashboardPage() {
                     borderRadius: "var(--radius)",
                   }}
                 />
-                <ReferenceLine y={30} label={{ value: 'Max', position: 'insideTopLeft', fill: 'hsl(var(--foreground))', fontSize: 12 }} stroke="hsl(var(--border))" strokeDasharray="3 3" />
+                <Line
+                  type="monotone"
+                  dataKey="max"
+                  stroke="hsl(var(--border))"
+                  strokeDasharray="3 3"
+                  name="Max"
+                  dot={false}
+                  strokeWidth={2}
+                />
                 <Line
                   type="monotone"
                   dataKey="present"
