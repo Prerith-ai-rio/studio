@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 const attendanceData = [
   { name: "Mon", present: 28, absent: 2 },
@@ -56,15 +57,22 @@ export default function DashboardPage() {
 
       <div className="grid gap-6 lg:grid-cols-5">
         <Card className="lg:col-span-3">
-          <CardHeader>
-            <CardTitle>Weekly Attendance</CardTitle>
-            <CardDescription>
-              Overview of attendance for the current week.
-            </CardDescription>
+          <CardHeader className="flex-row items-center justify-between">
+            <div>
+                <CardTitle>Attendance Overview</CardTitle>
+                <CardDescription>
+                Track attendance trends over time.
+                </CardDescription>
+            </div>
+            <div className="flex gap-2">
+                <Button variant="outline" size="sm">Week</Button>
+                <Button variant="ghost" size="sm">Month</Button>
+                <Button variant="ghost" size="sm">All</Button>
+            </div>
           </CardHeader>
           <CardContent className="h-[300px] pl-2">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={attendanceData}>
+              <LineChart data={attendanceData}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <XAxis
                   dataKey="name"
@@ -88,19 +96,23 @@ export default function DashboardPage() {
                     borderRadius: "var(--radius)",
                   }}
                 />
-                <Bar
+                <Line
+                  type="monotone"
                   dataKey="present"
-                  fill="hsl(var(--primary))"
+                  stroke="hsl(142.1 76.2% 41.2%)"
                   name="Present"
-                  radius={[4, 4, 0, 0]}
+                  dot={false}
+                  strokeWidth={2}
                 />
-                 <Bar
+                 <Line
+                  type="monotone"
                   dataKey="absent"
-                  fill="hsl(var(--destructive) / 0.5)"
+                  stroke="hsl(0 84.2% 60.2%)"
                   name="Absent"
-                  radius={[4, 4, 0, 0]}
+                  dot={false}
+                  strokeWidth={2}
                 />
-              </BarChart>
+              </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
