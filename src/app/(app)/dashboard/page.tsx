@@ -98,13 +98,13 @@ export default function DashboardPage() {
                   }}
                 />
                 <Line
-                  type="monotone"
+                  type="linear"
                   dataKey="max"
                   stroke="hsl(var(--border))"
-                  strokeDasharray="3 3"
+                  strokeDasharray="5 5"
                   name="Max"
                   dot={false}
-                  strokeWidth={2}
+                  strokeWidth={1}
                 />
                 <Line
                   type="monotone"
