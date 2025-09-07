@@ -48,7 +48,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="flex items-center justify-center pb-6">
             <div className="text-center">
-               <div className="text-2xl font-bold">28 / 30</div>
+               <div className="text-2xl font-bold text-green-500">28 of 30</div>
             </div>
           </CardContent>
         </Card>
