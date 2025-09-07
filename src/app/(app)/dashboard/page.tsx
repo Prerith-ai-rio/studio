@@ -31,7 +31,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     const max = data.max;
 
     return (
-      <div className="p-2 rounded-lg border bg-background shadow-sm">
+      <div className="p-2 rounded-lg border bg-background/80 backdrop-blur-sm shadow-sm">
         <p className="font-bold">{label}</p>
         {payload.map((pld: any, index: number) => {
           if (pld.name === 'Present' || pld.name === 'Absent') {
@@ -86,14 +86,14 @@ export default function DashboardPage() {
 
       <div className="grid gap-6">
         <Card>
-          <CardHeader className="flex-row items-center justify-between">
+          <CardHeader className="md:flex-row md:items-center md:justify-between">
             <div>
                 <CardTitle>Attendance Overview</CardTitle>
                 <CardDescription>
                 Track attendance trends over time.
                 </CardDescription>
             </div>
-            <div className="flex gap-2 rounded-lg bg-muted p-1">
+            <div className="flex gap-2 rounded-lg bg-muted p-1 mt-4 md:mt-0">
                 <Button variant="secondary" size="sm" className="shadow-sm">Week</Button>
                 <Button variant="ghost" size="sm">Month</Button>
                 <Button variant="ghost" size="sm">All</Button>
@@ -105,13 +105,13 @@ export default function DashboardPage() {
                 <CartesianGrid vertical={false} strokeDasharray="3 3" strokeOpacity={0.2} />
                 <XAxis
                   dataKey="name"
-                  stroke="#888888"
+                  stroke="hsl(var(--muted-foreground))"
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
-                  stroke="#888888"
+                  stroke="hsl(var(--muted-foreground))"
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
@@ -121,15 +121,7 @@ export default function DashboardPage() {
                   cursor={{ fill: "hsl(var(--muted))", opacity: 0.1 }}
                   content={<CustomTooltip />}
                 />
-                <Line
-                  type="linear"
-                  dataKey="max"
-                  stroke="hsl(var(--border))"
-                  strokeDasharray="5 5"
-                  name="Max"
-                  dot={false}
-                  strokeWidth={1.5}
-                />
+                
                 <Line
                   type="monotone"
                   dataKey="present"
