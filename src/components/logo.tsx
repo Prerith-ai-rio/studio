@@ -36,19 +36,16 @@ const Logo: React.FC<LogoProps> = ({
     >
       <g className="group-data-[collapsible=icon]:hidden">
         <title>{title}</title>
-        {/* Icon */}
-        <g transform="translate(60, 40)">
-            <rect x="0" y="0" width="40" height="220" rx="20" fill={fillBlue} />
-            <rect x="60" y="0" width="40" height="220" rx="20" fill={fillBlue} />
-            <rect x="120" y="0" width="40" height="220" rx="20" fill={fillBlue} />
-            <rect x="180" y="0" width="40" height="220" rx="20" fill={fillBlue} />
-            <circle cx="250" cy="40" r="20" fill={fillGreen} />
-            <circle cx="250" cy="100" r="20" fill={fillGreen} />
-            <circle cx="250" cy="160" r="20" fill={fillGreen} />
-            <circle cx="250" cy="220" r="20" fill={fillCoral} />
+        <g transform="translate(60,40)">
+          <rect x="0" y="0" width="40" height="220" rx="20" fill={fillBlue} />
+          <rect x="80" y="0" width="40" height="220" rx="20" fill={fillBlue} />
+          <rect x="160" y="0" width="40" height="220" rx="20" fill={fillBlue} />
+          <rect x="240" y="0" width="40" height="120" rx="20" fill={fillBlue} />
+          <circle cx="260" cy="170" r="22" fill={fillGreen} />
+          <circle cx="260" cy="230" r="22" fill={fillGreen} />
+          <circle cx="260" cy="290" r="22" fill={fillCoral} />
         </g>
-        {/* Wordmark */}
-        <g fill={wordmarkFill} transform="translate(360, 215) scale(1.05)">
+        <g fill={wordmarkFill} transform="translate(380, 215) scale(1.05)">
           <path d="M60-20c0-38 26-64 64-64 21 0 38 8 49 22l10-18h32v160H168v-20c-12 14-29 22-50 22-38 0-58-22-58-56 0-35 22-56 64-56h44c-2-22-16-34-38-34-18 0-31 9-35 24H60zm116 60v-28h-40c-24 0-34 8-34 24 0 14 10 24 30 24 18 0 34-8 44-20z" />
           <path d="M260-40v100h-36V-40h-22v-32h22v-28h36v28h32v32h-32z" />
           <path d="M332-40v100h-36V-40h-22v-32h22v-28h36v28h32v32h-32z" />
@@ -58,17 +55,15 @@ const Logo: React.FC<LogoProps> = ({
           <path d="M884-40v20c10-16 26-24 46-24 36 0 58 22 58 60v84h-36V18c0-20-12-34-30-34-20 0-34 16-34 38v76h-36V-72h36v32z" />
         </g>
       </g>
-      {/* Icon only for collapsed sidebar */}
-      <g className="hidden group-data-[collapsible=icon]:block" transform="scale(3.5) translate(25, 25)">
-        <g>
+      <g className="hidden group-data-[collapsible=icon]:block" transform="scale(3.5) translate(40, 20)">
+        <g transform="translate(0, 5)">
             <rect x="0" y="0" width="10" height="55" rx="5" fill={fillBlue} />
-            <rect x="15" y="0" width="10" height="55" rx="5" fill={fillBlue} />
-            <rect x="30" y="0" width="10" height="55" rx="5" fill={fillBlue} />
-            <rect x="45" y="0" width="10" height="55" rx="5" fill={fillBlue} />
-            <circle cx="62" cy="10" r="5" fill={fillGreen} />
-            <circle cx="62" cy="25" r="5" fill={fillGreen} />
-            <circle cx="62" cy="40" r="5" fill={fillGreen} />
-            <circle cx="62" cy="55" r="5" fill={fillCoral} />
+            <rect x="20" y="0" width="10" height="55" rx="5" fill={fillBlue} />
+            <rect x="40" y="0" width="10" height="55" rx="5" fill={fillBlue} />
+            <rect x="60" y="0" width="10" height="30" rx="5" fill={fillBlue} />
+            <circle cx="65" cy="42.5" r="5.5" fill={fillGreen} />
+            <circle cx="65" cy="60" r="5.5" fill={fillGreen} />
+            <circle cx="65" cy="77.5" r="5.5" fill={fillCoral} />
         </g>
       </g>
     </svg>
