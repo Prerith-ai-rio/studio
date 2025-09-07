@@ -36,7 +36,7 @@ export default function DashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-600">92%</div>
+            <div className="text-2xl font-bold text-green-500">92%</div>
           </CardContent>
         </Card>
       </div>
@@ -47,7 +47,7 @@ export default function DashboardPage() {
             <CardTitle>Weekly Attendance</CardTitle>
             <CardDescription>
               Overview of attendance for the current week.
-            </CardDescription>
+            </Card-Description>
           </CardHeader>
           <CardContent className="h-[300px] pl-2">
             <ResponsiveContainer width="100%" height="100%">
