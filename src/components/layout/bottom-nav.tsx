@@ -42,7 +42,7 @@ export function BottomNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors",
+                "inline-flex flex-col items-center justify-center px-5 font-medium group text-foreground hover:text-primary transition-colors",
                 isActive && "text-primary"
               )}
             >
@@ -54,7 +54,7 @@ export function BottomNav() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <div className={cn(
-                    "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    "inline-flex flex-col items-center justify-center px-5 font-medium group text-foreground hover:text-primary transition-colors cursor-pointer"
                 )}>
                     <UserCircle className="w-5 h-5 mb-1" />
                     <span className="text-xs">Profile</span>
