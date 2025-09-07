@@ -86,7 +86,6 @@ export default function DashboardPage() {
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
-                  domain={[0, 30]}
                   tickFormatter={(value) => `${value}`}
                 />
                 <Tooltip
