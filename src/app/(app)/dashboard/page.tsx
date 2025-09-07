@@ -47,7 +47,7 @@ export default function DashboardPage() {
             <CardTitle>Weekly Attendance</CardTitle>
             <CardDescription>
               Overview of attendance for the current week.
-            </Card-Description>
+            </CardDescription>
           </CardHeader>
           <CardContent className="h-[300px] pl-2">
             <ResponsiveContainer width="100%" height="100%">
