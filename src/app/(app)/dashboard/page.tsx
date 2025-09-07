@@ -25,6 +25,39 @@ const attendanceData = [
   { name: "Sun", present: 30, absent: 0, max: 30 },
 ];
 
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    const data = payload[0].payload;
+    const max = data.max;
+
+    return (
+      <div className="p-2 rounded-lg border bg-background shadow-sm">
+        <p className="font-bold">{label}</p>
+        {payload.map((pld: any, index: number) => {
+          if (pld.name === 'Present' || pld.name === 'Absent') {
+            const percentage = max > 0 ? ((pld.value / max) * 100).toFixed(0) : 0;
+            return (
+              <p key={index} style={{ color: pld.stroke }}>
+                {`${pld.name}: ${pld.value} (${percentage}%)`}
+              </p>
+            );
+          }
+          if (pld.name === 'Max') {
+            return (
+              <p key={index} style={{ color: pld.stroke }}>
+                {`${pld.name}: ${pld.value}`}
+              </p>
+            );
+          }
+          return null;
+        })}
+      </div>
+    );
+  }
+
+  return null;
+};
+
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
@@ -90,11 +123,7 @@ export default function DashboardPage() {
                 />
                 <Tooltip
                   cursor={{ fill: "hsl(var(--muted))" }}
-                  contentStyle={{
-                    backgroundColor: "hsl(var(--background))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "var(--radius)",
-                  }}
+                  content={<CustomTooltip />}
                 />
                 <Line
                   type="linear"
