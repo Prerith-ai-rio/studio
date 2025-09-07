@@ -35,7 +35,10 @@ export default function DashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex items-center justify-center pb-6">
-            <div className="text-2xl font-bold text-green-500">92%</div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-500">92%</div>
+              <p className="text-xs text-muted-foreground">28 of 30 present</p>
+            </div>
           </CardContent>
         </Card>
       </div>
