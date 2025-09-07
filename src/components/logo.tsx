@@ -9,17 +9,18 @@ const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
     <div className={cn("flex items-center space-x-2", className)}>
       <svg
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 120 80"
+        className="h-10 w-auto"
       >
-        <rect width="32" height="32" rx="6" fill="#E2E8F0"/>
-        <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fontSize="12" fill="#4A5568" fontWeight="500">ing</text>
+        {/* Blue bars */}
+        <rect x="0" y="10" width="12" height="60" rx="6" fill="#2563eb" />
+        <rect x="20" y="10" width="12" height="60" rx="6" fill="#2563eb" />
+        <rect x="40" y="10" width="12" height="60" rx="6" fill="#2563eb" />
+        <rect x="60" y="10" width="12" height="60" rx="6" fill="#2563eb" />
       </svg>
 
-      <span className="text-xl font-bold text-foreground">Attendease</span>
+      <span className="text-2xl font-bold text-foreground">Attendease</span>
     </div>
   );
 };
