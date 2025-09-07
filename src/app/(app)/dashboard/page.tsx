@@ -55,8 +55,8 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-5">
-        <Card className="lg:col-span-3">
+      <div className="grid gap-6">
+        <Card>
           <CardHeader className="flex-row items-center justify-between">
             <div>
                 <CardTitle>Attendance Overview</CardTitle>
@@ -123,50 +123,6 @@ export default function DashboardPage() {
                 />
               </LineChart>
             </ResponsiveContainer>
-          </CardContent>
-        </Card>
-
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
-            <CardDescription>
-              Navigate to key features.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <Link href="/attendance">
-              <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
-                <div>
-                  <h3 className="font-semibold">Mark Attendance</h3>
-                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
-                    Take attendance for a group.
-                  </p>
-                </div>
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
-            <Link href="/users">
-               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
-                <div>
-                  <h3 className="font-semibold">Manage Users</h3>
-                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
-                    Add, edit, or remove users.
-                  </p>
-                </div>
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
-             <Link href="/reports">
-               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
-                <div>
-                  <h3 className="font-semibold">Generate Reports</h3>
-                  <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/80">
-                    Export attendance data.
-                  </p>
-                </div>
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
           </CardContent>
         </Card>
       </div>
