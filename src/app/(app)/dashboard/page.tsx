@@ -13,7 +13,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { Line, LineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine } from "recharts";
 
 const attendanceData = [
   { name: "Mon", present: 28, absent: 2 },
@@ -86,6 +86,7 @@ export default function DashboardPage() {
                   fontSize={12}
                   tickLine={false}
                   axisLine={false}
+                  domain={[0, 30]}
                   tickFormatter={(value) => `${value}`}
                 />
                 <Tooltip
@@ -96,6 +97,7 @@ export default function DashboardPage() {
                     borderRadius: "var(--radius)",
                   }}
                 />
+                <ReferenceLine y={30} label={{ value: 'Max', position: 'insideTopLeft', fill: 'hsl(var(--foreground))', fontSize: 12 }} stroke="hsl(var(--border))" strokeDasharray="3 3" />
                 <Line
                   type="monotone"
                   dataKey="present"
