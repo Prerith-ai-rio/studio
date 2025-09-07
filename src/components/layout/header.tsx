@@ -37,7 +37,7 @@ export function Header() {
         <DropdownMenuContent align="end" className="w-72 p-2">
           <DropdownMenuLabel className="p-2">
             <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">Admin User</p>
+                <p className="text-sm font-medium leading-none">Admin</p>
                 <p className="text-xs leading-none text-muted-foreground">
                     prerithm87@gmail.com
                 </p>
