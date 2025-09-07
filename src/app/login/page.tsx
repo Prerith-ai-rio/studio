@@ -84,22 +84,7 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
         <Tabs defaultValue="admin" className="w-full max-w-md">
             <div className="flex justify-center mb-8">
-                <div className="flex items-center space-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 80" className="h-12 w-auto">
-                    {/* Blue lines */}
-                    <rect x="0" y="10" width="12" height="60" rx="6" fill="hsl(var(--primary))"/>
-                    <rect x="25" y="10" width="12" height="60" rx="6" fill="hsl(var(--primary))"/>
-                    <rect x="50" y="10" width="12" height="30" rx="6" fill="hsl(var(--primary))"/>
-                    <rect x="75" y="10" width="12" height="45" rx="6" fill="hsl(var(--primary))"/>
-                    {/* Green dots */}
-                    <circle cx="104" cy="25" r="8" fill="hsl(var(--accent))"/>
-                    <circle cx="104" cy="45" r="8" fill="hsl(var(--accent))"/>
-                    <circle cx="126" cy="25" r="8" fill="hsl(var(--accent))"/>
-                    {/* Red dot */}
-                    <circle cx="104" cy="65" r="8" fill="hsl(var(--destructive))"/>
-                  </svg>
-                  <span className="text-3xl font-bold text-foreground">AttendEase</span>
-                </div>
+                <Logo />
             </div>
             <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="teacher">Teacher</TabsTrigger>
