@@ -10,10 +10,7 @@ import {
 } from "@/components/ui/card";
 import {
   ArrowRight,
-  CheckCircle2,
   Users,
-  AlertCircle,
-  BrainCircuit,
 } from "lucide-react";
 import Link from "next/link";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
@@ -37,11 +34,10 @@ export default function DashboardPage() {
             <CardTitle className="text-sm font-medium">
               Today's Attendance
             </CardTitle>
-            <CheckCircle2 className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">92%</div>
-            <p className="text-xs text-muted-foreground">28 of 30 members present</p>
+            <p className="text-xs text-muted-foreground">28 members of 30 members present</p>
           </CardContent>
         </Card>
       </div>
