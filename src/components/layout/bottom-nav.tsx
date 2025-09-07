@@ -33,8 +33,8 @@ export function BottomNav() {
   }
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6">
-      <div className="grid h-20 w-full max-w-lg grid-cols-4 mx-auto bg-card/80 backdrop-blur-lg border rounded-2xl shadow-lg">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-t">
+      <div className="grid h-20 w-full grid-cols-4 mx-auto">
         {navItems.map((item) => {
            const isActive = pathname === item.href;
           return (
@@ -43,8 +43,7 @@ export function BottomNav() {
               href={item.href}
               className={cn(
                 "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors",
-                isActive && "text-primary",
-                 "first:rounded-l-2xl last:rounded-r-2xl hover:bg-muted/50"
+                isActive && "text-primary"
               )}
             >
               <item.icon className="w-6 h-6 mb-1" />
@@ -55,8 +54,7 @@ export function BottomNav() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <div className={cn(
-                    "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors cursor-pointer",
-                    "last:rounded-r-2xl hover:bg-muted/50"
+                    "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 )}>
                     <UserCircle className="w-6 h-6 mb-1" />
                     <span className="text-xs">Profile</span>
