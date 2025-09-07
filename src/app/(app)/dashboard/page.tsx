@@ -29,12 +29,12 @@ export default function DashboardPage() {
     <div className="flex flex-col gap-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <Card className="rounded-full">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardHeader className="flex flex-row items-center justify-center space-y-0 pb-2 pt-6">
             <CardTitle className="text-sm font-medium">
               Today's Attendance
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex items-center justify-center pb-6">
             <div className="text-2xl font-bold text-green-500">92%</div>
           </CardContent>
         </Card>
