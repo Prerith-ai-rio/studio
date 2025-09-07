@@ -62,7 +62,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-        <Card>
+        <Card className="bg-card border shadow-sm">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Today's Attendance
@@ -72,7 +72,7 @@ export default function DashboardPage() {
             <div className="text-4xl font-bold text-green-400">92%</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-card border shadow-sm">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Present Today

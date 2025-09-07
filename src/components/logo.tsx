@@ -7,7 +7,7 @@ export interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
-    <div className={cn('flex items-center space-x-2', className)}>
+    <div className={cn('flex items-center', className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 120 80"
