@@ -36,7 +36,7 @@ export default function DashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">92%</div>
+            <div className="text-2xl font-bold text-green-600">92%</div>
           </CardContent>
         </Card>
       </div>
