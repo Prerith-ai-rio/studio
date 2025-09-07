@@ -62,8 +62,8 @@ const Logo: React.FC<LogoProps> = ({
             <rect x="40" y="0" width="10" height="55" rx="5" fill={fillBlue} />
             <rect x="60" y="0" width="10" height="30" rx="5" fill={fillBlue} />
             <circle cx="65" cy="42.5" r="5.5" fill={fillGreen} />
-            <circle cx="65" cy="60" r="5.5" fill={fillGreen} />
-            <circle cx="65" cy="77.5" r="5.5" fill={fillCoral} />
+            <circle cx="65" cy="57.5" r="5.5" fill={fillGreen} />
+            <circle cx="65" cy="72.5" r="5.5" fill={fillCoral} />
         </g>
       </g>
     </svg>
