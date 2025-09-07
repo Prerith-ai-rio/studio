@@ -37,7 +37,6 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">92%</div>
-            <p className="text-xs text-muted-foreground">28 members of 30 members present</p>
           </CardContent>
         </Card>
       </div>
