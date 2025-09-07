@@ -1,9 +1,7 @@
-
 import React from 'react';
+import { cn } from "@/lib/utils";
 
 export interface LogoProps {
-  width?: number;
-  height?: number;
   className?: string;
 }
 
