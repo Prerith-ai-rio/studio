@@ -139,7 +139,7 @@ export default function DashboardPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <Link href="/attendance" passHref>
+            <Link href="/attendance">
               <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Mark Attendance</h3>
@@ -150,7 +150,7 @@ export default function DashboardPage() {
                 <ArrowRight className="h-5 w-5" />
               </div>
             </Link>
-            <Link href="/users" passHref>
+            <Link href="/users">
                <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Manage Users</h3>
@@ -161,7 +161,7 @@ export default function DashboardPage() {
                 <ArrowRight className="h-5 w-5" />
               </div>
             </Link>
-             <Link href="/reports" passHref>
+             <Link href="/reports">
                <div className="flex items-center justify-between rounded-lg border p-4 transition-all hover:bg-accent hover:text-accent-foreground cursor-pointer group">
                 <div>
                   <h3 className="font-semibold">Generate Reports</h3>
