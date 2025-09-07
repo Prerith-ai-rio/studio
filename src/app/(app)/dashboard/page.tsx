@@ -36,10 +36,6 @@ export default function DashboardPage() {
             <CardTitle className="text-sm font-medium">
               Today's Attendance
             </CardTitle>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500" />
-              <XCircle className="h-4 w-4 text-red-500" />
-            </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-500">92%</div>
