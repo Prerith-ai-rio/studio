@@ -61,29 +61,25 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="rounded-full">
-          <CardHeader className="flex flex-row items-center justify-center space-y-0 pb-2 pt-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Today's Attendance
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex items-center justify-center pb-6">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-500">92%</div>
-            </div>
+          <CardContent>
+            <div className="text-4xl font-bold text-green-400">92%</div>
           </CardContent>
         </Card>
-        <Card className="rounded-full">
-          <CardHeader className="flex flex-row items-center justify-center space-y-0 pb-2 pt-6">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Present Today
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex items-center justify-center pb-6">
-            <div className="text-center">
-               <div className="text-2xl font-bold text-green-500">28 of 30</div>
-            </div>
+          <CardContent>
+             <div className="text-4xl font-bold">28 <span className="text-2xl text-muted-foreground">of 30</span></div>
           </CardContent>
         </Card>
       </div>
@@ -97,8 +93,8 @@ export default function DashboardPage() {
                 Track attendance trends over time.
                 </CardDescription>
             </div>
-            <div className="flex gap-2">
-                <Button variant="outline" size="sm">Week</Button>
+            <div className="flex gap-2 rounded-lg bg-muted p-1">
+                <Button variant="secondary" size="sm" className="shadow-sm">Week</Button>
                 <Button variant="ghost" size="sm">Month</Button>
                 <Button variant="ghost" size="sm">All</Button>
             </div>
@@ -106,7 +102,7 @@ export default function DashboardPage() {
           <CardContent className="h-[300px] pl-2">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={attendanceData}>
-                <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                <CartesianGrid vertical={false} strokeDasharray="3 3" strokeOpacity={0.2} />
                 <XAxis
                   dataKey="name"
                   stroke="#888888"
@@ -122,7 +118,7 @@ export default function DashboardPage() {
                   tickFormatter={(value) => `${value}`}
                 />
                 <Tooltip
-                  cursor={{ fill: "hsl(var(--muted))" }}
+                  cursor={{ fill: "hsl(var(--muted))", opacity: 0.1 }}
                   content={<CustomTooltip />}
                 />
                 <Line
@@ -132,7 +128,7 @@ export default function DashboardPage() {
                   strokeDasharray="5 5"
                   name="Max"
                   dot={false}
-                  strokeWidth={1}
+                  strokeWidth={1.5}
                 />
                 <Line
                   type="monotone"

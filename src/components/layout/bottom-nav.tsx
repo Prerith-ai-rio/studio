@@ -33,8 +33,8 @@ export function BottomNav() {
   }
 
   return (
-    <nav className="fixed inset-x-2 bottom-2 z-50 max-w-md mx-auto">
-      <div className="grid h-20 w-full grid-cols-4 mx-auto bg-background/80 backdrop-blur-lg border rounded-full shadow-lg">
+    <nav className="fixed inset-x-4 bottom-4 z-50 max-w-md mx-auto md:hidden">
+      <div className="grid h-16 w-full grid-cols-4 mx-auto bg-card/80 backdrop-blur-lg border rounded-full shadow-lg">
         {navItems.map((item) => {
            const isActive = pathname === item.href;
           return (
@@ -46,7 +46,7 @@ export function BottomNav() {
                 isActive && "text-primary"
               )}
             >
-              <item.icon className="w-6 h-6 mb-1" />
+              <item.icon className="w-5 h-5 mb-1" />
               <span className="text-xs">{item.label}</span>
             </Link>
           );
@@ -56,12 +56,12 @@ export function BottomNav() {
                 <div className={cn(
                     "inline-flex flex-col items-center justify-center px-5 font-medium group text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 )}>
-                    <UserCircle className="w-6 h-6 mb-1" />
+                    <UserCircle className="w-5 h-5 mb-1" />
                     <span className="text-xs">Profile</span>
                 </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" side="top" className="w-72 p-2 mb-2">
-                <DropdownMenuLabel className="p-2">
+            <DropdownMenuContent align="end" side="top" className="w-56 mb-2">
+                <DropdownMenuLabel>
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">Admin</p>
                         <p className="text-xs leading-none text-muted-foreground">
@@ -70,11 +70,11 @@ export function BottomNav() {
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer p-2">
+                <DropdownMenuItem className="cursor-pointer">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Settings</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer p-2">
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive focus:text-destructive">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
                 </DropdownMenuItem>
